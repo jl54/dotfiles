@@ -1,7 +1,8 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "FiraCode Nerd Font Propo", Roboto, Helvetica, Arial, sans-serif;
+    font-family:
+        "FiraCode Nerd Font Propo", Roboto, Helvetica, Arial, sans-serif;
     font-size: 16px;
 
     min-height: 0;
@@ -14,12 +15,16 @@ window#waybar {
     color: white;
 }
 
+window#waybar > box {
+    padding: 4px 0;
+}
+
 tooltip {
-  background: rgba(43, 48, 59, 0.5);
-  border: 1px solid rgba(100, 114, 125, 0.5);
+    background: rgba(43, 48, 59, 0.5);
+    border: 1px solid rgba(100, 114, 125, 0.5);
 }
 tooltip label {
-  color: white;
+    color: white;
 }
 
 #workspaces button {
@@ -30,12 +35,12 @@ tooltip label {
 }
 
 #workspaces button.active {
-    color: #6F00FF;
+    color: #6f00ff;
 }
 
 #clock {
     padding: 4px 12px;
-    background-color: #6F00FF; 
+    background-color: #6f00ff;
     border-radius: 20px;
     font-weight: bold;
 }
