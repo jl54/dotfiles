@@ -105,4 +105,4 @@ source $ZSH/oh-my-zsh.sh
 
 source /usr/share/nvm/init-nvm.sh
 
-alias air=~/.air
+alias air=$(go env GOPATH)/bin/air
