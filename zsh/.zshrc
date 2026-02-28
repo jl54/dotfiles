@@ -109,3 +109,4 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 alias air=$(go env GOPATH)/bin/air
 alias laravel=$XDG_CONFIG_HOME/composer/vendor/bin/laravel
+eval "$(mise activate zsh)"
