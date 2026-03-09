@@ -111,3 +111,5 @@ export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 alias air=$(go env GOPATH)/bin/air
 alias laravel=$XDG_CONFIG_HOME/composer/vendor/bin/laravel
 eval "$(mise activate zsh)"
+
+bindkey -s '^L' 'clear\n'
