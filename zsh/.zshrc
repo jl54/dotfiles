@@ -106,6 +106,7 @@ source $ZSH/oh-my-zsh.sh
 source /usr/share/nvm/init-nvm.sh
 
 export XDG_CONFIG_HOME="$HOME/.config"
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 alias air=$(go env GOPATH)/bin/air
 alias laravel=$XDG_CONFIG_HOME/composer/vendor/bin/laravel
