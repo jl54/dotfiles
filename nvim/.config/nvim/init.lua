@@ -2,6 +2,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
 vim.g.catppuccin_flavour = "macchiato"
+vim.g.netrw_keepdir = 0
 
 vim.schedule(function()
 	vim.o.clipboard = "unnamedplus"
