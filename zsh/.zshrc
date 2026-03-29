@@ -113,3 +113,10 @@ alias laravel=$XDG_CONFIG_HOME/composer/vendor/bin/laravel
 eval "$(mise activate zsh)"
 
 bindkey -s '^Q' 'clear\n'
+
+# bun completions
+[ -s "/home/jonas/.bun/_bun" ] && source "/home/jonas/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
