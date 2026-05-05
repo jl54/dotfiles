@@ -11,6 +11,7 @@ return {
 				"gopls",
 				"intelephense",
 				"vtsls",
+				"twiggy_language_server",
 			},
 			automatic_installation = true,
 		},
@@ -53,6 +54,26 @@ return {
 			}
 
 			local gopls_config = {}
+
+			local emmet_language_server_config = {
+				filetypes = {
+					"css",
+					"eruby",
+					"html",
+					"javascript",
+					"javascriptreact",
+					"less",
+					"sass",
+					"scss",
+					"typescriptreact",
+					"twig",
+				},
+			}
+
+			local html_config = {
+				filetypes = { "html", "twig" },
+			}
+
 			local vue_ls_config = {}
 
 			local markdown_oxide_config = {
@@ -84,6 +105,17 @@ return {
 			vim.lsp.config("gopls", gopls_config)
 			vim.lsp.config("markdown_oxide", markdown_oxide_config)
 			vim.lsp.enable({ "vtsls", "vue_ls", "gopls", "tofu_ls", "markdown_oxide" }) -- If using `ts_ls` replace `vtsls` to `ts_ls`
+			vim.lsp.config("emmet_language_server", emmet_language_server_config)
+			vim.lsp.config("html", html_config)
+			vim.lsp.enable({
+				"vtsls",
+				"vue_ls",
+				"gopls",
+				"tofu_ls",
+				"twiggy_language_server",
+				"emmet_language_server",
+				"html",
+			}) -- If using `ts_ls` replace `vtsls` to `ts_ls`
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
