@@ -127,6 +127,28 @@ return {
 				update_in_insert = true,
 				virtual_text = true,
 			})
+			-- Format on save
+			local format_group = vim.api.nvim_create_augroup("LspFormatting", {})
+
+			vim.api.nvim_create_autocmd("LspAttach", {
+				group = format_group,
+				callback = function(args)
+					local client = vim.lsp.get_client_by_id(args.data.client_id)
+
+					if client and client:supports_method("textDocument/formatting") then
+						vim.api.nvim_create_autocmd("BufWritePre", {
+							group = format_group,
+							buffer = args.buf,
+							callback = function()
+								vim.lsp.buf.format({
+									bufnr = args.buf,
+									timeout_ms = 2000,
+								})
+							end,
+						})
+					end
+				end,
+			})
 		end,
 	},
 }
