@@ -65,13 +65,14 @@ return {
 					"less",
 					"sass",
 					"scss",
+					"pug",
 					"typescriptreact",
 					"twig",
 				},
 			}
 
 			local html_config = {
-				filetypes = { "html", "twig" },
+				filetypes = { "html" },
 			}
 
 			local vue_ls_config = {}
@@ -100,13 +101,44 @@ return {
 				end,
 			}
 
+			local twiggy_language_server_config = {
+				settings = {
+					twiggy = {
+						framework = "symfony",
+						phpExecutable = "/opt/homebrew/bin/php",
+						symfonyConsolePath = "bin/console",
+					},
+				},
+				filetypes = { "twig" },
+				root_markers = { "composer.json", ".git" },
+			}
+
+			local prettier_config = {
+				filetypes = {
+					"css",
+					"graphql",
+					"html",
+					"javascript",
+					"javascriptreact",
+					"json",
+					"less",
+					"markdown",
+					"scss",
+					"typescript",
+					"typescriptreact",
+					"yaml",
+					"twig",
+				},
+			}
+
 			vim.lsp.config("vtsls", vtsls_config)
 			vim.lsp.config("vue_ls", vue_ls_config)
 			vim.lsp.config("gopls", gopls_config)
 			vim.lsp.config("markdown_oxide", markdown_oxide_config)
-			vim.lsp.enable({ "vtsls", "vue_ls", "gopls", "tofu_ls", "markdown_oxide" }) -- If using `ts_ls` replace `vtsls` to `ts_ls`
 			vim.lsp.config("emmet_language_server", emmet_language_server_config)
 			vim.lsp.config("html", html_config)
+			vim.lsp.config("twiggy_language_server", twiggy_language_server_config)
+			vim.lsp.config("prettier", prettier_config)
 			vim.lsp.enable({
 				"vtsls",
 				"vue_ls",
@@ -114,7 +146,10 @@ return {
 				"tofu_ls",
 				"twiggy_language_server",
 				"emmet_language_server",
+				"markdown_oxide",
+				"cssls",
 				"html",
+				"prettier",
 			}) -- If using `ts_ls` replace `vtsls` to `ts_ls`
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
@@ -147,6 +182,23 @@ return {
 							end,
 						})
 					end
+				end,
+			})
+
+			vim.api.nvim_create_autocmd("BufWritePost", {
+				pattern = "*.scss",
+				callback = function(args)
+					local input = args.file
+					local output = input:gsub("%.scss$", ".css")
+
+					vim.fn.jobstart({
+						"/usr/local/bin/sass",
+						input,
+						output,
+					}, {
+						cwd = vim.fn.fnamemodify(input, ":h"), -- $FileDir$
+						detach = true,
+					})
 				end,
 			})
 		end,

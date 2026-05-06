@@ -23,7 +23,6 @@ return {
 			"javascript",
 			"typescript",
 			"json",
-			"jsonc",
 			"lua",
 			"luadoc",
 			"luap",
@@ -33,13 +32,14 @@ return {
 			"php",
 			"regex",
 			"toml",
+			"twig",
 			"yaml",
 			"vim",
 			"vimdoc",
 			"xml",
 			"go",
 			"gomod",
-            "typescript"
+			"typescript",
 		}
 		local alreadyInstalled = require("nvim-treesitter.config").get_installed()
 		local parsersToInstall = vim.iter(ensureInstalled)
