@@ -131,6 +131,8 @@ return {
 				},
 			}
 
+			local qmlls_config = {}
+
 			vim.lsp.config("vtsls", vtsls_config)
 			vim.lsp.config("vue_ls", vue_ls_config)
 			vim.lsp.config("gopls", gopls_config)
@@ -139,6 +141,7 @@ return {
 			vim.lsp.config("html", html_config)
 			vim.lsp.config("twiggy_language_server", twiggy_language_server_config)
 			vim.lsp.config("prettier", prettier_config)
+			vim.lsp.config("qmlls", qmlls_config)
 			vim.lsp.enable({
 				"vtsls",
 				"vue_ls",
@@ -150,6 +153,7 @@ return {
 				"cssls",
 				"html",
 				"prettier",
+				"qmlls",
 			}) -- If using `ts_ls` replace `vtsls` to `ts_ls`
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
