@@ -1,0 +1,6 @@
+{
+  "workspace.library": ["/usr/share/hypr/stubs"],
+  "workspace.ignoreDir": ["plugins"],
+  "diagnostics.globals": ["hl"],
+  "runtime.version": "Lua 5.4"
+}
