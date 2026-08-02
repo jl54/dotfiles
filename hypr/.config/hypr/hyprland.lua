@@ -235,6 +235,10 @@ hl.config({
 		kb_options = "",
 		kb_rules = "",
 
+		-- Equivalent of `xset r rate 200 30`
+		repeat_delay = 200,
+		repeat_rate = 30,
+
 		follow_mouse = 1,
 
 		sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
