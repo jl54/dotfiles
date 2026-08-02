@@ -11,6 +11,8 @@ return {
 		{ "<leader>lm", ":LaravelMake<cr>", desc = "Laravel Make" },
 	},
 	config = function()
-		require("laravel").setup()
+		require("laravel").setup({
+			keymaps = true,
+		})
 	end,
 }
