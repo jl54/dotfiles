@@ -11,6 +11,7 @@ return {
 				null_ls.builtins.formatting.pint,
 				null_ls.builtins.formatting.black,
 				null_ls.builtins.formatting.prettierd,
+				null_ls.builtins.formatting.pg_format,
 				-- require("none-ls.diagnostics.eslint_d"),
 				null_ls.builtins.completion.spell,
 			},
